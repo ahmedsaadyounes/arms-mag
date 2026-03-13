@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+  Dynamic page template for Ramses Magazine
+
+  This page allows displaying custom pages created via the dashboard. It
+  retrieves the page identifier from the URL query string (e.g., ?id=page1)
+  and uses the shared script.js to load the appropriate translations from
+  localStorage. The header and footer mirror those used on the homepage
+  and article pages to maintain a cohesive navigation experience. The
+  layout follows the same responsive patterns and typography settings
+  recommended for digital magazines.
+-->
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>صفحة ديناميكية - مجلة رمسيس</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-uGZTazTu1L0+Sb4FwES9E41BxY5GHpsJk9n2y1/H/azGqSwEo5KFq00gyVJQWb0hYn0gqJuhdCLw9f05DqWqHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- PWA manifest -->
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body data-role="page">
+  <header>
+    <div class="container">
+      <h1 class="logo">مجلة رمسيس</h1>
+      <nav>
+        <ul>
+          <li><a data-i18n="home" href="index.html">الرئيسية</a></li>
+          <li class="dropdown">
+            <a data-i18n="categoriesNav" href="index.html#categories">الأقسام</a>
+            <ul class="dropdown-menu" id="categories-menu"></ul>
+          </li>
+          <li><a data-i18n="articlesNav" href="index.html#articles">المقالات</a></li>
+          <li><a data-i18n="aboutNav" href="index.html#about">عن المجلة</a></li>
+          <li><a data-i18n="contactNav" href="index.html#contact">اتصل بنا</a></li>
+          <li><a data-i18n="dashboardNav" href="dashboard.html">لوحة التحكم</a></li>
+        </ul>
+      </nav>
+      <div class="controls">
+        <form id="search-form" class="search-bar" role="search" style="display:flex; align-items:center;">
+          <input type="text" id="search-input" placeholder="" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <select id="language-select" aria-label="اختيار اللغة">
+          <option value="ar">العربية</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+        </select>
+        <button id="theme-toggle" aria-label="تبديل الوضع">☾</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="page-content" class="article">
+    <!-- Title and content will be injected by script.js based on page id -->
+    <h1></h1>
+    <div class="page-body"></div>
+  </main>
+
+  <footer>
+    <p>© 2026 <span data-i18n="footerText">مجلة رمسيس. جميع الحقوق محفوظة.</span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

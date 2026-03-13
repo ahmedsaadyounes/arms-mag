@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+  Article page for Ramses Magazine (Article 3)
+
+  This page illustrates another article template. It maintains the
+  structure and styling established across the site, reinforcing brand
+  consistency and user familiarity. As with other pages, it uses a
+  responsive layout and clear hierarchy of headings, aligning with
+  recommendations to use clean heading hierarchies for SEO and
+  accessibility【415725145404077†L497-L499】.
+-->
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عنوان المقال الثالث - مجلة رمسيس</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-uGZTazTu1L0+Sb4FwES9E41BxY5GHpsJk9n2y1/H/azGqSwEo5KFq00gyVJQWb0hYn0gqJuhdCLw9f05DqWqHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- PWA manifest -->
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body data-role="article">
+  <header>
+    <div class="container">
+      <h1 class="logo">مجلة رمسيس</h1>
+      <nav>
+        <ul>
+          <li><a data-i18n="home" href="index.html">الرئيسية</a></li>
+          <li class="dropdown">
+            <a data-i18n="categoriesNav" href="index.html#categories">الأقسام</a>
+            <ul class="dropdown-menu" id="categories-menu"></ul>
+          </li>
+          <li><a data-i18n="articlesNav" href="index.html#articles">المقالات</a></li>
+          <li><a data-i18n="aboutNav" href="index.html#about">عن المجلة</a></li>
+          <li><a data-i18n="contactNav" href="index.html#contact">اتصل بنا</a></li>
+          <li><a data-i18n="dashboardNav" href="dashboard.html">لوحة التحكم</a></li>
+        </ul>
+      </nav>
+      <div class="controls">
+        <form id="search-form" class="search-bar" role="search" style="display:flex; align-items:center;">
+          <input type="text" id="search-input" placeholder="" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <select id="language-select" aria-label="اختيار اللغة">
+          <option value="ar">العربية</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+        </select>
+        <button id="theme-toggle" aria-label="تبديل الوضع">☾</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article">
+    <h1>عنوان المقال الثالث</h1>
+    <p class="article-meta">نُشر في 5 يناير 2026</p>
+    <img src="images/placeholder.png" alt="" />
+    <p>
+      في هذا المقال الثالث نعرض لك مثالاً آخر على كيفية تنسيق المقالات
+      داخل مجلة رمسيس. يمكن أن يتناول هذا المقال مواضيع متنوعة مثل
+      الثقافة، الصحة، أو الفن. اخترنا هنا استخدام نص بديل لإظهار
+      التصميم بدون الدخول في تفاصيل المحتوى.
+    </p>
+    <p class="pull-quote">
+      مثل الصفحات الأخرى، يعتمد هذا التصميم على وجود مساحات بيضاء
+      كافية وعناوين واضحة لجعل المحتوى سهل القراءة. بالإضافة إلى ذلك
+      فإن استخدام الصور يدعم المقال ويجعله جذاباً للقارئ.
+    </p>
+    <p>
+      لا تنسَ أن تجرب تصفح هذه الصفحة عبر هاتفك المحمول لتلاحظ كيف
+      تتكيف العناصر مع حجم الشاشة، مما يضمن تجربة تصفح سلسة وفقاً لنصائح
+      الخبراء في التصميم المتجاوب【415725145404077†L492-L499】.
+    </p>
+    <!-- Embedded audio sample to enrich the article -->
+    <audio controls style="width:100%; margin-bottom:20px;">
+      <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+    </audio>
+  </main>
+
+  <footer>
+    <p>© 2026 <span data-i18n="footerText">مجلة رمسيس. جميع الحقوق محفوظة.</span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

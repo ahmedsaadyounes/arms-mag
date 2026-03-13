@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+  Dashboard for Ramses Magazine
+
+  This page provides an administrative interface for managing categories
+  and articles and viewing basic statistics. It utilises JavaScript and
+  localStorage to simulate CRUD operations without a back‑end. Language
+  switching and theme toggling are shared with the rest of the site.
+-->
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - مجلة رمسيس</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-uGZTazTu1L0+Sb4FwES9E41BxY5GHpsJk9n2y1/H/azGqSwEo5KFq00gyVJQWb0hYn0gqJuhdCLw9f05DqWqHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- PWA manifest -->
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body data-role="dashboard">
+  <header>
+    <div class="container">
+      <h1 class="logo">مجلة رمسيس</h1>
+      <nav>
+        <ul>
+          <li><a data-i18n="home" href="index.html">الرئيسية</a></li>
+          <li class="dropdown">
+            <a data-i18n="categoriesNav" href="index.html#categories">الأقسام</a>
+            <ul class="dropdown-menu" id="categories-menu"></ul>
+          </li>
+          <li><a data-i18n="articlesNav" href="index.html#articles">المقالات</a></li>
+          <li><a data-i18n="aboutNav" href="index.html#about">عن المجلة</a></li>
+          <li><a data-i18n="contactNav" href="index.html#contact">اتصل بنا</a></li>
+          <li><a data-i18n="dashboardNav" href="dashboard.html">لوحة التحكم</a></li>
+        </ul>
+      </nav>
+      <div class="controls">
+        <form id="search-form" class="search-bar" role="search">
+          <input type="text" id="search-input" placeholder="" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <select id="language-select" aria-label="اختيار اللغة">
+          <option value="ar">العربية</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+        </select>
+        <button id="theme-toggle" aria-label="تبديل الوضع">☾</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="article" style="max-width: 1200px;">
+    <h1 data-i18n="dashboardTitle">لوحة التحكم</h1>
+    <!-- Statistics section -->
+    <section id="stats-container"></section>
+    <!-- Category management section -->
+    <section id="category-management"></section>
+    <!-- Article management section -->
+    <section id="article-management"></section>
+    <!-- Page management section -->
+    <section id="page-management"></section>
+    <!-- Image management section -->
+    <section id="image-management"></section>
+  </main>
+
+  <footer>
+    <p>© 2026 <span data-i18n="footerText">مجلة رمسيس. جميع الحقوق محفوظة.</span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

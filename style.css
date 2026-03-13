@@ -1,0 +1,557 @@
+/*
+ * Style sheet for مجلة رمسيس (Ramses Magazine)
+ *
+ * This file defines the core styling for the Ramses magazine website. The
+ * design emphasises readability, a clean grid layout and responsive
+ * behaviour that adapts to different screen sizes. The color palette is
+ * inspired by ancient Egyptian art (gold and turquoise) but keeps a
+ * modern aesthetic suitable for a digital publication. The CSS uses
+ * mobile‑first principles and ensures adequate white space, clear
+ * typography and minimal layout shifts, reflecting recommendations for
+ * mobile‑friendly magazine design【415725145404077†L470-L476】. Images are
+ * optimised through responsive sizing and lazy loading when used.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+:root {
+  /* Colour palette inspired by Egyptian motifs */
+  --primary-color: #c19a3f; /* gold */
+  --secondary-color: #008080; /* teal/turquoise */
+  --text-color: #222;
+  --background-color: #fdfdfd;
+  --light-grey: #f5f5f5;
+  --dark-overlay: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.6;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+nav ul li a:hover {
+  opacity: 0.8;
+}
+
+/* Hero section */
+.hero {
+  background-image: url('images/hero.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero .overlay {
+  background-color: var(--dark-overlay);
+  padding: 20px 40px;
+  border-radius: 8px;
+}
+
+.hero h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Section titles */
+section h2 {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+/* Categories grid */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.category-card {
+  background-color: var(--light-grey);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.category-card i {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+.category-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.category-card p {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+/* Articles grid */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+.article-card {
+  background-color: var(--light-grey);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.article-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.article-content {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-content h3 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+.article-content p {
+  flex: 1;
+  margin: 0 0 15px;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+.read-more {
+  align-self: flex-start;
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: #006666;
+}
+
+/* About & Contact sections */
+section#about,
+section#contact {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  line-height: 1.7;
+}
+
+section#about p,
+section#contact p {
+  margin-bottom: 15px;
+}
+
+/* Article page styles */
+.article {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px 40px;
+}
+
+.article h1 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.article-meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.article img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.article p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Theme variables for dark mode */
+body.dark {
+  /* In dark mode we adjust the palette to ensure accessibility and comfort.
+     Use softer blacks and desaturated colours as recommended by
+     accessibility guidelines【556770961686949†L307-L331】. */
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --light-grey: #1f1f1f;
+  --dark-overlay: rgba(0, 0, 0, 0.7);
+  /* Primary and secondary colours remain consistent to retain brand identity,
+     but can be slightly muted if desired. */
+  /* Example: you can darken secondary colour by reducing brightness. */
+}
+
+/* Additional utilities for theme toggle and language controls */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls select {
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.controls button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: var(--secondary-color);
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #006666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 250px;
+  }
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  nav ul {
+    gap: 10px;
+  }
+}
+
+/* Dropdown navigation styles for mega menu */
+nav li.dropdown {
+  position: relative;
+}
+nav li.dropdown > a:after {
+  content: '\f078'; /* Font Awesome chevron-down icon */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  margin-right: 5px;
+  font-size: 0.8rem;
+}
+nav li.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: var(--primary-color);
+  min-width: 180px;
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+.dropdown-menu li {
+  margin: 0;
+}
+.dropdown-menu li a {
+  display: block;
+  padding: 8px 15px;
+  color: #fff;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+}
+.dropdown-menu li a:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+/* Search bar styles */
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.search-bar input {
+  border: none;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  flex: 1;
+  min-width: 0;
+}
+.search-bar button {
+  border: none;
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-bar button:hover {
+  background-color: #006666;
+}
+
+/* Featured posts section */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+.featured-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.featured-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+.featured-card .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: var(--dark-overlay);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.featured-card .overlay h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+.featured-card .overlay a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.featured-card .overlay a:hover {
+  text-decoration: none;
+}
+
+/* Pull quote styling inside articles */
+.pull-quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  background-color: var(--light-grey);
+  padding: 15px 20px;
+  margin: 20px 0;
+  line-height: 1.6;
+  color: var(--secondary-color);
+  border-right: 4px solid var(--primary-color);
+}
+body[dir="ltr"] .pull-quote {
+  border-right: none;
+  border-left: 4px solid var(--primary-color);
+}
+
+/* Listen button */
+.listen-btn {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.listen-btn:hover {
+  background-color: #006666;
+}
+
+/* Share section */
+#share-section {
+  margin: 40px 0;
+}
+#share-section h3 {
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+.share-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.share-buttons a {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.share-buttons a:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+/* Related posts */
+#related-posts {
+  margin-top: 40px;
+}
+#related-posts h3 {
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  font-size: 1.4rem;
+}
+.related-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.related-card {
+  background-color: var(--light-grey);
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease;
+}
+.related-card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.related-card a {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
